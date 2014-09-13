@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="olimpicapp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/favicon.ico">
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+        
+        <link rel="canonical" href="http://www.example.com/" >
+        
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!--
+        <meta name="mobile-web-app-capable" content="yes">
+        -->
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        -->
+
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">        
+        <link rel="stylesheet/less" href="less/main.less">
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <script src="js/less.js"></script>
+    </head>
+    <body>
+
+       <div id="main-container">
+         <header>
+            <div class="primary-top-bar"> 
+            <div class="wraper">         
+            <h1>Olimpica Stereo</h1>
+            <img class="center" width="128" src="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/logo.png" alt="Olimpica Stereo">
+            </div>
+            </div>
+
+            <div class="secondary-top-bar">
+            <table class="wraper">
+               <tr>
+               <td ng-controller="20Latinas">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button ng-click="play('http://i91.letio.com:80/19102.mp3')" style="font-size:25px">&#9658;</button>
+                <button onclick="document.getElementById('player').pause()">▌▌</button>
+                </td>
+                <td style="center">                                
+                    <select class="center">
+                        <option>
+                         92.1 - Barranquilla
+                        </option>
+                    </select>
+                </td>
+        
+                </tr>
+            </table>
+            </div>
+  
+         </header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+         <section class="app-content wraper" >
+
+
+         <div ng-controller="20Latinas">
+         <h2>Las 20 Latinas</h2>
+
+               <ol class="lats20" >
+                   
+                    <li ng-model="Lats20" ng-repeat="tema in Lats20">
+                       <table>
+                          <td>
+                              <img width="105" src="{{tema.img}}" alt="img">
+                          </td>
+                          <td>
+
+                          <div>
+                          {{tema.nombre}} - {{tema.artista}}
+                          </div>
+                          <button ng-click="play(tema.src)">&#9658;</button>                                                    
+                          </td>
+                       </table>
+                    </li>
+               </ol>
+         </div>
+
+         </section>
+         <br>
+<br>
+<br>
+<br>
+
+<span class="wraper " style="text-align:center">Gomosöft</span>
+<br>
+<br>
+<br>
+<br>
+         <footer>
+
+               <table class="wraper">
+                   <tr>
+                       <td class="msg-wrap">
+                           <div class="tuit ">
+               <input value="Tuitea al locutor" type="text" />
+               </div>
+                       </td>
+                   </tr>
+               </table>
+
+         </footer>    
+       </div>
+<audio id="player" src="" style="display:none" >
+    
+</audio>
+        <script src="js/angular.min.js"></script>
+        <script src="js/fastclick.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+
+                window.addEventListener('load', function(e) {
+        setTimeout(function() { window.scrollTo(0, 1); }, 1);
+      }, false);
+
+
+       window.player = document.getElementById('player');
+       
+
+        var app = angular.module('olimpicapp',[]);
+
+
+            app.controller('20Latinas', function($scope, $http){
+
+                $scope.Lats20 = {};
+
+                $http
+                .get('servicios/20Latinas.php')
+                .success(function(rs){
+
+                    $scope.Lats20 = rs.rs;
+
+                });
+
+
+                $scope.play = function(src){                    
+                       player.src = src;
+                       player.load();
+                       player.play();
+                }
+
+            });
+
+        </script>
+    </body>
+</html>
