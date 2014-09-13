@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
         <meta http-equiv="cleartype" content="on">
 
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -15,7 +15,7 @@
         <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
         <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
         <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
-<link rel="shortcut icon" href="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/favicon.ico">
+        <link rel="shortcut icon" href="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/favicon.ico">
         <!-- Tile icon for Win8 (144x144 + tile color) -->
         <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
         <meta name="msapplication-TileColor" content="#222222">
@@ -43,6 +43,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">        
         <link rel="stylesheet/less" href="less/main.less">
+        <link rel="stylesheet/less" href="icons/style.css">
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
         <script src="js/less.js"></script>
     </head>
@@ -61,14 +62,13 @@
             <table class="wraper">
                <tr>
                <td ng-controller="20Latinas">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button ng-click="play('http://i91.letio.com:80/19102.mp3')" style="font-size:25px">&#9658;</button>
-                <button onclick="document.getElementById('player').pause()">▌▌</button>
+                <button ng-click="play('emi')" style="font-size:25px"><i class="icon-play3"></i></button>                
+                <button ng-click="pause()" style="font-size:25px"><i class="icon-pause2"></i></button>                
                 </td>
-                <td style="center">                                
-                    <select class="center">
-                        <option>
-                         92.1 - Barranquilla
-                        </option>
+                <td style="center" ng-controller="emisoras">                                
+                    <select class="center" ng-change="play()"  ng-model="emisoraSel" 
+                    ng-options="emisora as emisora.ciudad for emisora in emisoras" >
+                        <option value="">-- Ciudad --</option>
                     </select>
                 </td>
         
@@ -84,12 +84,11 @@
 <br>
 <br>
 <br>
-<br>
-         <section class="app-content wraper" >
+         <section class="app-content " >
 
 
-         <div ng-controller="20Latinas">
-         <h2>Las 20 Latinas</h2>
+         <div ng-controller="20Latinas" class="wraper">
+         <h2 style="text-align: center;">Las 20 Latinas</h2>
 
                <ol class="lats20" >
                    
@@ -101,33 +100,35 @@
                           <td>
 
                           <div>
-                          {{tema.nombre}} - {{tema.artista}}
+                          {{tema.nombre}} <br> <b>{{tema.artista}}</b>
                           </div>
-                          <button ng-click="play(tema.src)">&#9658;</button>                                                    
+                          <button ng-click="play(tema.src)" ><i class="icon-play3"></i></button>                                                    
                           </td>
                        </table>
                     </li>
                </ol>
          </div>
-
-         </section>
          <br>
 <br>
 <br>
-<br>
-
 <span class="wraper " style="text-align:center">Gomosöft</span>
 <br>
 <br>
 <br>
 <br>
+         </section>
+         <br>
+
+
+
+
          <footer>
 
                <table class="wraper">
                    <tr>
                        <td class="msg-wrap">
                            <div class="tuit ">
-               <input value="Tuitea al locutor" type="text" />
+               <textarea placeholder="Tuitea al locutor"></textarea> 
                </div>
                        </td>
                    </tr>
@@ -162,6 +163,99 @@
 
         var app = angular.module('olimpicapp',[]);
 
+            app.controller('emisoras', function($scope, $http){
+
+$scope.emisoras = [
+
+                {
+                    ciudad : "Armenia",                                      
+                    src : "http://i91.letio.com:80/19162.mp3"
+                },
+{ 
+    ciudad : "Barranquilla",
+    src :"http://i91.letio.com:80/19102.mp3"
+},
+{ 
+    ciudad : "Bogota",
+    src :"http://i91.letio.com:80/19114.mp3"
+},
+{ 
+    ciudad : "Bucaramanga",
+    src :"http://i91.letio.com:80/19122.mp3"
+},
+{ 
+    ciudad : "Cali",
+    src :"http://i91.letio.com:80/19120.mp3"
+},
+{ 
+    ciudad : "Cartagena",
+    src :"http://i91.letio.com:80/19108.mp3"
+},
+{ 
+    ciudad : "Cucuta",
+    src :"http://i91.letio.com:80/19134.mp3"
+},
+{ 
+    ciudad : "Ibague",
+    src :"http://i91.letio.com:80/19130.mp3"
+},
+{
+    ciudad : "Manizales",
+    src :"http://i91.letio.com:80/19126.mp3"
+},
+{ 
+    ciudad : "Medellin",
+    src :"http://i91.letio.com:80/19128.mp3"
+},
+{ 
+    ciudad : "Monteria",
+    src :"http://i91.letio.com:80/19112.mp3"
+},
+{ 
+    ciudad : "Neiva",
+    src :"http://i91.letio.com:80/19136.mp3"
+},
+{ 
+    ciudad : "Pereira",
+    src :"http://i91.letio.com:80/19124.mp3"
+},
+{ 
+    ciudad : "Santa Marta",
+    src :"http://i91.letio.com:80/19110.mp3"
+},
+{ 
+    ciudad : "Sincelejo",
+    src :"http://i91.letio.com:80/19116.mp3"
+},
+{ 
+    ciudad : "Valle de upar",
+    src :"http://i91.letio.com:80/19118.mp3"
+},
+{ 
+    ciudad : "Villavicencio",
+    src :"http://i91.letio.com:80/19132.mp3"
+ }
+];
+
+
+$scope.play = function(){    
+
+        if(!$scope.emisoraSel)
+        {
+            alert("Debes seleccionar una ciudad.");
+            return;
+        }
+
+       player.src = $scope.emisoraSel.src;
+       window.playing = $scope.emisoraSel.src;
+
+       player.load();
+       player.play();
+}
+
+           
+
+            });
 
             app.controller('20Latinas', function($scope, $http){
 
@@ -176,11 +270,35 @@
                 });
 
 
-                $scope.play = function(src){                    
+                $scope.play = function(src){   
+
+                    console.log(src); 
+
+                      if(src === "emi")
+                      {
+
+                       console.log(window.playing); 
+
+
+                        if(!window.playing && !src) return;
+
+                         player.src = window.playing;
+                         player.load();
+                         player.play();
+                         return;
+
+                      }  
+
                        player.src = src;
                        player.load();
                        player.play();
+
+                       window.playing = src;
+
                 }
+
+
+                $scope.pause = function(){ player.pause(); }
 
             });
 

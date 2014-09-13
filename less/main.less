@@ -7,7 +7,8 @@
 
 body{
 	
-	color: @fontt
+	color: @fontt;
+	overflow:hidden;
 	 
 }
 
@@ -26,6 +27,7 @@ header{
 	 position:fixed;
 	 top:0;
 	 left:0;
+	 z-index:2;
 
 	 h1{
 	  text-align:center;
@@ -38,13 +40,26 @@ header{
 	 .padded-m;
 }
 
-.secondary-top-bar{ background: @naranja-fuerte; .padded-m; *{color:white;background:none} button{border:none} select{border-color:@naranja-claro; border-radius: 5px; padding:5px}}
+.secondary-top-bar{ background: @naranja-fuerte; .padded-m; *{color:white;background:none} button{border:none} select{border-radius: 5px;
+padding: 5px;
+background: #fdac4f;
+color: #575757;
+border: none;
+outline:none;}}
 
 .wraper{
 	   width:320px;
 	   .center;
 }
 
+
+.app-content{
+	position: absolute;
+z-index: 0;
+width: 100%;
+max-height: 72%;
+overflow: auto;
+}
 
 footer{
 	  position:fixed;
@@ -65,12 +80,14 @@ footer{
 
 .tuit{
 	  
-	  input{ 
+	  textarea{ 
 	  width: 100%;
 margin: 0 auto;
 border: 1px solid #ebebeb;
 color: #383838;
-outline:none;
+outline: none;
+resize: none;
+height: 16px;
 	  }
 }
 
@@ -87,14 +104,18 @@ outline:none;
 	   padding:7px;
 	     button{
 	    border-radius: 99em;
-height: 50px;
-width: 50px;
+height: 45px;
+width: 45px;
 margin-top: 10px;
 background: #D6D6D6;
 border: 1px solid #B9B9B9;
 color: white;
-font-size: 29px;
+font-size: 28px;
 text-align: center;
+  	
+  	   i{
+  	       line-height:1.5;
 	     }
+  	   }
 	  }
 }
