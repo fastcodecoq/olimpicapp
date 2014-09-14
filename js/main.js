@@ -20,6 +20,7 @@
        .get("http://gomosoft.com/olimpicapp/servicios/emisoras.json")
        .success(function(rs){
            $scope.emisoras = rs.data;
+           window.appurl = rs.appurl;
        })
 
 
@@ -41,6 +42,7 @@ $scope.play = function(){
 
        player.load();
        player.play();
+       window.twitter = $scope.emisoraSel.twitter || "OlimpicaStereo";
 }
 
            
@@ -120,7 +122,7 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=OlimpicaStereo", "_blank", "closebuttoncaption=Cerrar");          
+         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "closebuttoncaption=Cerrar");          
          $scope.tuit = "";
       }
 
