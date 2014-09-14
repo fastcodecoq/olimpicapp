@@ -65,15 +65,16 @@
                 <button ng-click="play('emi')" style="font-size:25px"><i class="icon-play3"></i></button>                
                 <button ng-click="pause()" style="font-size:25px"><i class="icon-pause2"></i></button>                
                 </td>
-                <td style="center" ng-controller="emisoras">                               
+                <td style="center" ng-controller="emisoras">  
+                   <span ng-model="frec" style="float: left;margin-top: 5px;margin-left: 5px;">{{frec}}</span>                             
                     <select class="center" ng-change="play()"  ng-model="emisoraSel" 
                     ng-options="emisora as emisora.ciudad for emisora in emisoras" >
                         <option value="">-- Ciudad --</option>
                     </select>
                 </td>
 
-                <td>
-                 <a href="tel:0353006239" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
+                <td ng-controller="emisoras">
+                 <a ng-model="tel" href="tel:{{tel}}" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
                 </td>
         
                 </tr>
@@ -133,7 +134,7 @@
                        <td class="msg-wrap">
                            <div class="tuit ">
                <textarea placeholder="Tuitea al locutor"></textarea> 
-
+               <a href="#" class="btn-send"><i class="icon-arrow-right3"></i></a>
                </div>
                        </td>
                    </tr>
@@ -177,7 +178,9 @@ $scope.emisoras = [
                 },
 { 
     ciudad : "Barranquilla",
-    src :"http://i91.letio.com:80/19102.mp3"
+    src :"http://i91.letio.com:80/19102.mp3",
+    tel : "0353850500",
+    frec : "92.1"
 },
 { 
     ciudad : "Bogota",
@@ -193,7 +196,9 @@ $scope.emisoras = [
 },
 { 
     ciudad : "Cartagena",
-    src :"http://i91.letio.com:80/19108.mp3"
+    src :"http://i91.letio.com:80/19108.mp3",
+    frec : "97.1",
+    tel : "6604569"
 },
 { 
     ciudad : "Cucuta",
@@ -229,7 +234,9 @@ $scope.emisoras = [
 },
 { 
     ciudad : "Sincelejo",
-    src :"http://i91.letio.com:80/19116.mp3"
+    src :"http://i91.letio.com:80/19116.mp3",
+    tel : "035821633",
+    frec : "101.5"
 },
 { 
     ciudad : "Valle de upar",
@@ -252,6 +259,9 @@ $scope.play = function(){
 
        player.src = $scope.emisoraSel.src;
        window.playing = $scope.emisoraSel.src;
+
+       $scope.tel = $scope.emisoraSel.tel;
+       $scope.frec = $scope.emisoraSel.frec;
 
        player.load();
        player.play();
