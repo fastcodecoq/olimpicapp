@@ -160,7 +160,7 @@
 
 
        window.player = document.getElementById('player');
-       
+       window.emisra = "";
 
         var app = angular.module('olimpicapp',[]);
 
@@ -294,12 +294,27 @@ $scope.play = function(){
 
                         if(!window.playing && !src) return;
 
+                         if(window.emisra === window.playing)
+                         {
+                           player.play();
+                           return;
+                         }
+
                          player.src = window.playing;
                          player.load();
                          player.play();
+
+                         window.emisra = window.playing;
+
                          return;
 
                       }  
+
+                      if(window.playing === src)
+                        {
+                          player.play();
+                          return;
+                        }
 
                        player.src = src;
                        player.load();
