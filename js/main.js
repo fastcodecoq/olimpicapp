@@ -6,6 +6,7 @@
 
          window.player = document.getElementById('player');
          window.emisra = "";
+         window.twitter = "OlimpicaStereo";
 
         var app = angular.module('olimpicapp',[]);
 
