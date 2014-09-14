@@ -74,7 +74,7 @@
                 </td>
 
                 <td>
-                 <a  href="#" id="tel" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
+                 <a  href="#" id="tel" style="font-size: 22px;text-decoration: none;" data-tweet><i class="icon-phone"></i></a>
                 </td>
         
                 </tr>
@@ -131,10 +131,10 @@
 
                <table class="wraper">
                    <tr>
-                       <td class="msg-wrap">
+                       <td class="msg-wrap" ng-controller="twitter">
                            <div class="tuit ">
-               <textarea placeholder="Tuitea al locutor" id="tuit" onkeyup="autoGrow(this)"></textarea> 
-               <a href="#" class="btn-send"><i class="icon-arrow-right3"></i></a>
+               <textarea placeholder="Tuitea al locutor" ng-model="tuit" id="tuit" onkeyup="autoGrow(this)"></textarea> 
+               <a href="" class="btn-send" ng-click="doTuit()"><i class="icon-arrow-right3"></i></a>
                </div>
                        </td>
                    </tr>
@@ -150,6 +150,6 @@
         <script src="js/vendor/jquery-2.1.0.min.js"></script>
         <script src="js/main.js"></script>
 
-      
+
     </body>
 </html>

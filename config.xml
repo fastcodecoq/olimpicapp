@@ -42,7 +42,7 @@
               <icon src="icon_36.png" width="36" height="36" />
      </platform>
 
-
+<gap:plugin name="org.li8.inappbrowser" version="0.1" />
 
 <feature name="http://api.phonegap.com/1.0/network"/>
 <feature name="http://api.phonegap.com/1.0/notification"/>

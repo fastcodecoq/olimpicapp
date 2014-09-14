@@ -76,7 +76,7 @@ $scope.play = function(){
 
                         if(!window.playing && !src) return;
 
-                         if(window.emisra === window.playing)
+                         if(window.emisra === window.playing) // si la emisora se estaba reproduciendo solo la reanudamos
                          {
                            player.play();
                            return;
@@ -92,7 +92,7 @@ $scope.play = function(){
 
                       }  
 
-                      if(window.playing === src)
+                      if(window.playing === src) // si el track ya estaba en reprodución solo lo reproducimos nuevamente
                         {
                           player.play();
                           return;
@@ -111,6 +111,20 @@ $scope.play = function(){
 
             });
   
+
+  //controller twitter
+
+
+  app.controller("twitter", function($scope){
+
+      $scope.tuit = "";
+
+      $scope.doTuit = function(){
+         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=OlimpicaStereo", "_blank");          
+         $scope.tuit = "";
+      }
+
+  });
 
 
 
@@ -158,7 +172,6 @@ $scope.play = function(){
            $("footer").toggleClass('noauto');
 
     });
-
 
 
 
