@@ -65,7 +65,8 @@
                 <button ng-click="play('emi')" style="font-size:25px"><i class="icon-play3"></i></button>                
                 <button ng-click="pause()" style="font-size:25px"><i class="icon-pause2"></i></button>                
                 </td>
-                <td style="center" ng-controller="emisoras">                                
+                <td style="center" ng-controller="emisoras">  
+                   <i class="icon-podcast" style="float: left;font-size: 23px;"></i>                              
                     <select class="center" ng-change="play()"  ng-model="emisoraSel" 
                     ng-options="emisora as emisora.ciudad for emisora in emisoras" >
                         <option value="">-- Ciudad --</option>
