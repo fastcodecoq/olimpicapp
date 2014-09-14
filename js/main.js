@@ -17,7 +17,7 @@
        
 
        $http
-       .get("servicios/emisoras.json")
+       .get("http://gomosoft.com/olimpicapp/servicios/emisoras.json")
        .success(function(rs){
            $scope.emisoras = rs.data;
        })
