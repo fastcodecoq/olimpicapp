@@ -125,6 +125,7 @@ $scope.play = function(){
       $scope.doTuit = function(){
          window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "closebuttoncaption=Cerrar");          
          $scope.tuit = "";
+         $("#tuit").css(height,window.initialHeight+"px");
       }
 
   });
