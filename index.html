@@ -159,90 +159,94 @@
       }, false);
 
 
-       window.player = document.getElementById('player');
-       window.emisra = "";
+         window.player = document.getElementById('player');
+         window.emisra = "";
 
         var app = angular.module('olimpicapp',[]);
 
+        // controller emisoras
+
             app.controller('emisoras', function($scope, $http){
 
-$scope.emisoras = [
+              // pasaremos esto a un catalogo
 
-                {
+      $scope.emisoras = [
+
+                    {
                     ciudad : "Armenia",                                      
                     src : "http://i91.letio.com:80/19162.mp3"
-                },
-{ 
-    ciudad : "Barranquilla",
-    src :"http://i91.letio.com:80/19102.mp3",
-    tel : "0353850500",
-    frec : "92.1"
-},
-{ 
-    ciudad : "Bogota",
-    src :"http://i91.letio.com:80/19114.mp3"
-},
-{ 
-    ciudad : "Bucaramanga",
-    src :"http://i91.letio.com:80/19122.mp3"
-},
-{ 
-    ciudad : "Cali",
-    src :"http://i91.letio.com:80/19120.mp3"
-},
-{ 
-    ciudad : "Cartagena",
-    src :"http://i91.letio.com:80/19108.mp3",
-    frec : "97.1",
-    tel : "0356604569"
-},
-{ 
-    ciudad : "Cucuta",
-    src :"http://i91.letio.com:80/19134.mp3"
-},
-{ 
-    ciudad : "Ibague",
-    src :"http://i91.letio.com:80/19130.mp3"
-},
-{
-    ciudad : "Manizales",
-    src :"http://i91.letio.com:80/19126.mp3"
-},
-{ 
-    ciudad : "Medellin",
-    src :"http://i91.letio.com:80/19128.mp3"
-},
-{ 
-    ciudad : "Monteria",
-    src :"http://i91.letio.com:80/19112.mp3"
-},
-{ 
-    ciudad : "Neiva",
-    src :"http://i91.letio.com:80/19136.mp3"
-},
-{ 
-    ciudad : "Pereira",
-    src :"http://i91.letio.com:80/19124.mp3"
-},
-{ 
-    ciudad : "Santa Marta",
-    src :"http://i91.letio.com:80/19110.mp3"
-},
-{ 
-    ciudad : "Sincelejo",
-    src :"http://i91.letio.com:80/19116.mp3",
-    tel : "035821633",
-    frec : "101.5"
-},
-{ 
-    ciudad : "Valle de upar",
-    src :"http://i91.letio.com:80/19118.mp3"
-},
-{ 
-    ciudad : "Villavicencio",
-    src :"http://i91.letio.com:80/19132.mp3"
- }
-];
+                    },
+                    { 
+                    ciudad : "Barranquilla",
+                    src :"http://i91.letio.com:80/19102.mp3",
+                    tel : "0353850500",
+                    frec : "92.1"
+                    },
+                    { 
+                    ciudad : "Bogota",
+                    src :"http://i91.letio.com:80/19114.mp3"
+                    },
+                    { 
+                    ciudad : "Bucaramanga",
+                    src :"http://i91.letio.com:80/19122.mp3"
+                    },
+                    { 
+                    ciudad : "Cali",
+                    src :"http://i91.letio.com:80/19120.mp3"
+                    },
+                    { 
+                    ciudad : "Cartagena",
+                    src :"http://i91.letio.com:80/19108.mp3",
+                    frec : "97.1",
+                    tel : "0356604569"
+                    },
+                    { 
+                    ciudad : "Cucuta",
+                    src :"http://i91.letio.com:80/19134.mp3"
+                    },
+                    { 
+                    ciudad : "Ibague",
+                    src :"http://i91.letio.com:80/19130.mp3"
+                    },
+                    {
+                    ciudad : "Manizales",
+                    src :"http://i91.letio.com:80/19126.mp3"
+                    },
+                    { 
+                    ciudad : "Medellin",
+                    src :"http://i91.letio.com:80/19128.mp3"
+                    },
+                    { 
+                    ciudad : "Monteria",
+                    src :"http://i91.letio.com:80/19112.mp3"
+                    },
+                    { 
+                    ciudad : "Neiva",
+                    src :"http://i91.letio.com:80/19136.mp3"
+                    },
+                    { 
+                    ciudad : "Pereira",
+                    src :"http://i91.letio.com:80/19124.mp3"
+                    },
+                    { 
+                    ciudad : "Santa Marta",
+                    src :"http://i91.letio.com:80/19110.mp3"
+                    },
+                    { 
+                    ciudad : "Sincelejo",
+                    src :"http://i91.letio.com:80/19116.mp3",
+                    tel : "035821633",
+                    frec : "101.5"
+                    },
+                    { 
+                    ciudad : "Valle de upar",
+                    src :"http://i91.letio.com:80/19118.mp3"
+                    },
+                    { 
+                    ciudad : "Villavicencio",
+                    src :"http://i91.letio.com:80/19132.mp3"
+                    }
+    ];
 
 
 $scope.play = function(){    
@@ -268,6 +272,10 @@ $scope.play = function(){
            
 
             });
+
+
+  // controller 20 Latinas
+
 
             app.controller('20Latinas', function($scope, $http){
 
@@ -328,58 +336,9 @@ $scope.play = function(){
                 $scope.pause = function(){ player.pause(); }
 
             });
-
-$(function(){
-     
-     var lastScrollTop = 0;
-
-    $(window).scroll(function() {
-      
-      $("header").css("transform", "translateY(0)");
-
-    
-     });
-
-    $(".app-content").scroll(function(){
-        var st = $(this).scrollTop();
-
-     console.log(st,lastScrollTop);
-   
-      if (st > lastScrollTop){
-         $("footer:not('footer.noauto')").css("bottom", "-" + ( $("footer").height() + 15 ) + "px");
-        } else {
-         $("footer:not('footer.noauto')").css({transform : "translate3d(0,0" + $(window).scrollTop() + "px,0)", bottom:0});        
-      }
-
-   lastScrollTop = st;
-
-});
-
-
-    $("#tuit").on("focus", function(){
-
-           $("footer").toggleClass('noauto');
-
-    });
-
-
-    $("#tuit").on("blur", function(){
-
-           $("footer").toggleClass('noauto');
-
-    });
-
-
-
-
-});
-
-function autoGrow (oField) {
-      console.log("yey")
-  if (oField.scrollHeight > oField.clientHeight) 
-    oField.style.height = oField.scrollHeight + "px";
   
-}
+
+ 
 
         </script>
     </body>
