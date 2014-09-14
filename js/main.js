@@ -1,3 +1,120 @@
+
+      window.addEventListener('load', function(e) {
+        setTimeout(function() { window.scrollTo(0, 1); }, 1);
+      }, false);
+
+
+         window.player = document.getElementById('player');
+         window.emisra = "";
+
+        var app = angular.module('olimpicapp',[]);
+
+        // controller emisoras
+
+            app.controller('emisoras', function($scope, $http){
+
+              // pasaremos esto a un catalogo
+       
+
+       $http
+       .get("servicios/emisoras.json")
+       .success(function(rs){
+           $scope.emisoras = rs.data;
+       })
+
+
+$scope.play = function(){    
+
+        if(!$scope.emisoraSel)
+        {
+            alert("Debes seleccionar una ciudad.");
+            return;
+        }
+
+       player.src = $scope.emisoraSel.src;
+       window.playing = $scope.emisoraSel.src;
+
+       if($scope.emisoraSel.tel)
+         document.getElementById("tel").href = "tel:" + $scope.emisoraSel.tel;
+
+       $scope.frec = $scope.emisoraSel.frec;
+
+       player.load();
+       player.play();
+}
+
+           
+
+            });
+
+
+  // controller 20 Latinas
+
+
+            app.controller('20Latinas', function($scope, $http){
+
+                $scope.Lats20 = {};
+
+                $http
+                .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')
+                .success(function(rs){
+
+                    $scope.Lats20 = rs.rs;
+
+                });
+
+
+                $scope.play = function(src){   
+
+                    console.log(src); 
+
+                      if(src === "emi")
+                      {
+
+                       console.log(window.playing); 
+
+
+                        if(!window.playing && !src) return;
+
+                         if(window.emisra === window.playing)
+                         {
+                           player.play();
+                           return;
+                         }
+
+                         player.src = window.playing;
+                         player.load();
+                         player.play();
+
+                         window.emisra = window.playing;
+
+                         return;
+
+                      }  
+
+                      if(window.playing === src)
+                        {
+                          player.play();
+                          return;
+                        }
+
+                       player.src = src;
+                       player.load();
+                       player.play();
+
+                       window.playing = src;
+
+                }
+
+
+                $scope.pause = function(){ player.pause(); }
+
+            });
+  
+
+
+
+
   // Code Jquery
 
 
