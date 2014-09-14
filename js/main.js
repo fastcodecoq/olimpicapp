@@ -120,7 +120,7 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=OlimpicaStereo", "_system");          
+         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=OlimpicaStereo", "_blank", "closebuttoncaption=Cerrar");          
          $scope.tuit = "";
       }
 
