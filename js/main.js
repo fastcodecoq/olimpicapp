@@ -167,7 +167,13 @@ $scope.play = function(){
     // esto hará que un textarea ajuste el alto al contenido 
 
 function autoGrow (oField) {
-      console.log("yey")
+
+  if(!window.initialHeight)
+     window.initialHeight = oField.clientHeight;
+      
+  if(oField.value.split("").length === 0)
+     oField.style.height = window.initialHeight + "px";
+
   if (oField.scrollHeight > oField.clientHeight) 
     oField.style.height = oField.scrollHeight + "px";
   
