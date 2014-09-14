@@ -65,12 +65,15 @@
                 <button ng-click="play('emi')" style="font-size:25px"><i class="icon-play3"></i></button>                
                 <button ng-click="pause()" style="font-size:25px"><i class="icon-pause2"></i></button>                
                 </td>
-                <td style="center" ng-controller="emisoras">  
-                   <i class="icon-podcast" style="float: left;font-size: 23px;"></i>                              
+                <td style="center" ng-controller="emisoras">                               
                     <select class="center" ng-change="play()"  ng-model="emisoraSel" 
                     ng-options="emisora as emisora.ciudad for emisora in emisoras" >
                         <option value="">-- Ciudad --</option>
                     </select>
+                </td>
+
+                <td>
+                 <a href="tel:0353006239" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
                 </td>
         
                 </tr>
@@ -130,6 +133,7 @@
                        <td class="msg-wrap">
                            <div class="tuit ">
                <textarea placeholder="Tuitea al locutor"></textarea> 
+
                </div>
                        </td>
                    </tr>
@@ -137,9 +141,8 @@
 
          </footer>    
        </div>
-<audio id="player" src="" style="display:none" >
-    
-</audio>
+<video id="player" src="" style="display:none" ></video>
+
         <script src="js/angular.min.js"></script>
         <script src="js/fastclick.js"></script>
         <script src="js/helper.js"></script>
