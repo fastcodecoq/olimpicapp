@@ -73,8 +73,8 @@
                     </select>
                 </td>
 
-                <td ng-controller="emisoras">
-                 <a ng-model="tel" href="tel:{{tel}}" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
+                <td>
+                 <a  href="#" id="tel" style="font-size: 22px;text-decoration: none;"><i class="icon-phone"></i></a>
                 </td>
         
                 </tr>
@@ -260,7 +260,9 @@ $scope.play = function(){
        player.src = $scope.emisoraSel.src;
        window.playing = $scope.emisoraSel.src;
 
-       $scope.tel = $scope.emisoraSel.tel;
+       if($scope.emisoraSel.tel)
+         document.getElementById("tel").href = "tel:" + $scope.emisoraSel.tel;
+
        $scope.frec = $scope.emisoraSel.frec;
 
        player.load();
