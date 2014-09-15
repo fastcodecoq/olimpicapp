@@ -34,8 +34,7 @@
     <preference name="DisallowOverscroll" value="true"/>
 
 
-   <platform name="android">
-              <icon src="ldpi.png" density="ldpi" />
+           <icon src="ldpi.png" density="ldpi" />
               <icon src="mdpi.png" density="mdpi" />
               <icon src="hdpi.png" density="hdpi" />
               <icon src="xhdpi.png" density="xhdpi" />
@@ -54,7 +53,5 @@
 <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 </feature>
-
- </platform>
 
 </widget>
