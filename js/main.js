@@ -81,7 +81,7 @@ $scope.play = function(){
 
                    var msg = 'Estoy escuchando '+nombre+' de '+artista+', en la aplicación móvil de Olimpica Stereo.';
                    var  link = 'http://olimpicastereo.com.co/20-latinas';
-                   window.plugins.socialsharing.share(msg,null,src, link);
+                   window.plugins.socialsharing.share(msg, 'escuchando '+nombre+' de '+artista+, src, link);
 
                 }
 
@@ -169,8 +169,15 @@ $scope.play = function(){
         if ($("#tuit").val().trim()==""){
           alert("El mensaje no puede estar vacio");
         }else{
-         window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl); 
-         $("#tuit").css(height,window.initialHeight+"px");
+         window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl, function(err){
+          
+          if(error) return;
+
+          $("#tuit")
+          .css(height,window.initialHeight+"px")
+          .val('');
+
+         }); 
          }
       }
 
