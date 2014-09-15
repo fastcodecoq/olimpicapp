@@ -167,7 +167,7 @@ $scope.play = function(){
 
       $scope.doTuit = function(){
         if ($("#tuit").val().trim()==""){
-          alert("El tuit no puede estar vacio");
+          alert("El mensaje no puede estar vacio");
         }else{
          window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl); 
          $("#tuit").css(height,window.initialHeight+"px");
