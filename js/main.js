@@ -4,6 +4,7 @@
       }, false);
 
 
+
          window.player = document.getElementById('player');
          window.emisra = "";
          window.twitter = "OlimpicaStereo";
@@ -134,13 +135,11 @@ $scope.play = function(){
   });
 
 
+  //objeto app 
 
 
-  // Code Jquery
-
-
-
-   $(function(){
+  var app = {
+      run : function(){
 
 
      
@@ -152,6 +151,7 @@ $scope.play = function(){
 
     
      });
+
 
     $(".app-content").scroll(function(){
         var st = $(this).scrollTop();
@@ -180,13 +180,33 @@ $scope.play = function(){
 
            $("footer").toggleClass('noauto');
 
-    });
+     });
+
+  }
+  
+}
 
 
+  //miramos si corre con phonegap 
 
+ if(!!window.cordova)
+  
+   // device ready phonegap
+  
+  document.addEventListener("deviceready", function(){
 
+      alert('phonegap')
+    
+    window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
+    app.run();
+  
+  });
 
-});
+else
+
+  // Ready Jquery
+
+   $(app.run);
 
     // esto hará que un textarea ajuste el alto al contenido 
 
