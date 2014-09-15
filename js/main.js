@@ -197,7 +197,10 @@ $scope.play = function(){
 
       app.run();
     window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
-  
+    var count=0;
+  setInterval(function() {
+console.log(count++);
+},1000);
   
   });
 
