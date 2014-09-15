@@ -36,12 +36,12 @@
 
 
    <platform name="android">
-              <icon src="res/android/ldpi.png" density="ldpi" />
-              <icon src="res/android/mdpi.png" density="mdpi" />
-              <icon src="res/android/hdpi.png" density="hdpi" />
-              <icon src="res/android/xhdpi.png" density="xhdpi" />
+              <icon src="ldpi.png" density="ldpi" />
+              <icon src="mdpi.png" density="mdpi" />
+              <icon src="hdpi.png" density="hdpi" />
+              <icon src="xhdpi.png" density="xhdpi" />
      </platform>
-     
+
 <gap:plugin name="org.li8.inappbrowser" version="0.1" />
 <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.5.0" />
 <gap:plugin name="nl.x-services.plugins.socialsharing" />
