@@ -40,6 +40,7 @@
               <icon src="mdpi.png" density="mdpi" />
               <icon src="hdpi.png" density="hdpi" />
               <icon src="xhdpi.png" density="xhdpi" />
+              <icon src="xxhdpi.png" density="xxhdpi" />
      </platform>
 
 <gap:plugin name="org.li8.inappbrowser" version="0.1" />
