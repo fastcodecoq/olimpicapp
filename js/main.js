@@ -15,6 +15,8 @@
             app.controller('emisoras', function($scope, $http){
 
               // pasaremos esto a un catalogo
+
+              $scope.frec = "0.00";
        
 
        $http
@@ -38,9 +40,10 @@ $scope.play = function(){
 
        if($scope.emisoraSel.tel)
          document.getElementById("tel").href = "tel:" + $scope.emisoraSel.tel;
+       else
+        document.getElementById("tel").href = "tel:0315554433";
 
-       $scope.frec = $scope.emisoraSel.frec;
-
+       $scope.frec = $scope.emisoraSel.frec || "0.00";
        player.load();
        player.play();
        window.twitter = $scope.emisoraSel.twitter || "OlimpicaStereo";
@@ -123,7 +126,7 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "location=yes,closebuttoncaption=Cerrar");          
+         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "location=yes");          
          $scope.tuit = "";
          $("#tuit").css(height,window.initialHeight+"px");
       }

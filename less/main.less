@@ -3,8 +3,9 @@
 @naranja-claro : #FDAC4F;
 @naranja-fuerte : #f60;
 @gris : #BDC3C7;
-@fontt :  #383838;
-
+@fontt :  #393939;
+@azul : #00ade7;
+@_azul : rgba(0, 102, 255, 0.9);
 
 @-webkit-keyframes pop-in {    
 	0% { opacity: 0; -webkit-transform: scale3d(0.5,0.5,0); }
@@ -85,10 +86,15 @@ padding: 5px;
 background: #fdac4f;
 color: #575757;
 border: none;
-outline:none;}}
+outline:none;
+width: 60%;
+}
+}
 
 .wraper{
-	   width:320px;
+	   width:90%;
+	   max-width:620px;
+	   min-width:320px;
 	   .center;
 }
 
@@ -115,7 +121,7 @@ footer{
     transition: .1s ease-in-out;
     transform:translate3d(0);
 
-	  background: @gris !important;
+	  background: @_azul !important;
 &.noatuo{
 	  		position:fixed !important;
 
@@ -125,7 +131,7 @@ footer{
 	  .msg-wrap
 	  {	  
     padding: 7px;
-    background: #E7E7E7;
+    background: white;
 	  }
 
 .tuit{
@@ -142,6 +148,10 @@ box-shadow: none !important;
 -webkit-box-shadow: none !important;
 -webkit-appearance: none !important;	
  overflow: hidden;
+
+   &[placeholder]{
+     color:white;
+   }
 
 	  }
 
@@ -161,14 +171,8 @@ box-shadow: none !important;
 	  table td{
 	   padding:7px;
 	     button{
-	    border-radius: 99em;
-height: 45px;
-width: 45px;
-margin-top: 10px;
-background: #D6D6D6;
-border: 1px solid #B9B9B9;
-color: white;
-font-size: 28px;
+	color: #B9B9B9;
+font-size: 39px;
 text-align: center;
   	
   	   i{
