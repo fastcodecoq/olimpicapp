@@ -22,6 +22,7 @@
 
        $http
        .get("http://gomosoft.com/olimpicapp/servicios/emisoras.json")
+       // .get("servicios/emisoras.json")
        .success(function(rs){
            $scope.emisoras = rs.data;
            window.appurl = rs.appurl;
@@ -45,8 +46,11 @@ $scope.play = function(){
         document.getElementById("tel").href = "tel:0315554433";
 
        $scope.frec = $scope.emisoraSel.frec || "0.00";
+       $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                         $('.emis').addClass('icon-pause');
        player.load();
        player.play();
+      $scope.reproduciendo = true;
        window.twitter = $scope.emisoraSel.twitter || "OlimpicaStereo";
 }
 
@@ -64,13 +68,14 @@ $scope.play = function(){
 
                 $http
                 .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')
+                // .get('servicios/20Latinas.php')
                 .success(function(rs){
 
                     $scope.Lats20 = rs.rs;
 
                 });
 
-
+                $scope.reproduciendo = false;
                 $scope.share = function(nombre, artista, src){
                    console.log(nombre,artista,src);
 
@@ -81,7 +86,7 @@ $scope.play = function(){
                 }
 
 
-                $scope.play = function(src){   
+                $scope.play = function(event,src){   
 
                     console.log(src); 
 
@@ -95,14 +100,26 @@ $scope.play = function(){
 
                          if(window.emisra === window.playing) // si la emisora se estaba reproduciendo solo la reanudamos
                          {
-                           player.play();
+                          if ($scope.reproduciendo){
+                            $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                         $('.emis').addClass('icon-play2');
+                            $scope.reproduciendo = false;
+                            player.pause();
+                          }else{
+                            $scope.reproduciendo = true;
+                            $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                            $('.emis').addClass('icon-pause');
+                            player.play();
+                          }
                            return;
                          }
 
                          player.src = window.playing;
                          player.load();
                          player.play();
-
+                         $scope.reproduciendo = true;
+                         $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                         $('.emis').addClass('icon-pause');
                          window.emisra = window.playing;
 
                          return;
@@ -111,14 +128,26 @@ $scope.play = function(){
 
                       if(window.playing === src) // si el track ya estaba en reprodución solo lo reproducimos nuevamente
                         {
-                          player.play();
+                          if ($scope.reproduciendo){
+                            $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                          $(event.target).addClass('icon-play2');
+                            player.pause();
+                            $scope.reproduciendo=false;
+                          }else{
+                            $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                         $(event.target).addClass('icon-pause');
+                            player.play();
+                            $scope.reproduciendo=true;
+                          }
                           return;
                         }
 
                        player.src = src;
                        player.load();
                        player.play();
-
+                       $scope.reproduciendo = true;
+                       $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+                         $(event.target).addClass('icon-pause');
                        window.playing = src;
 
                 }
@@ -137,10 +166,12 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-
+        if ($("#tuit").val().trim()==""){
+          alert("El tuit no puede estar vacio");
+        }else{
          window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl); 
          $("#tuit").css(height,window.initialHeight+"px");
-
+         }
       }
 
   });

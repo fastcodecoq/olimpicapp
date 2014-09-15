@@ -61,9 +61,8 @@
             <div class="secondary-top-bar">
             <table class="wraper">
                <tr>
-               <td ng-controller="20Latinas" style="width: 90px">
-                <button ng-click="play('emi')" class="left" style="font-size:25px"><i class="icon-play2"></i></button>         
-                <button ng-click="pause()" class="left" style="font-size:25px; margin-left:10px"><i class="icon-pause"></i></button>                
+               <td ng-controller="20Latinas" style="width: 90px;text-align:center">
+                <button ng-click="play($event,'emi')" class="rep emis icon-play2" style="font-size:25px"></button>
                 </td>
                 <td style="center" ng-controller="emisoras">  
                    <span ng-model="frec" style="float: left;margin-top: 5px;">{{frec}} <img src="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/sound_colorWhite.png" alt="" ></span>                             
@@ -100,14 +99,14 @@
                     <li ng-model="Lats20" ng-repeat="tema in Lats20">
                        <table>
                           <td>
-                              <img width="105" src="{{tema.img}}" alt="img">
+                              <img width="105" ng-src="{{tema.img}}" alt="img">
                           </td>
                           <td>
 
                           <div>
                           {{tema.nombre}} <br> <b>{{tema.artista}}</b>
                           </div>
-                          <button ng-click="play(tema.src)" ><i class="icon-play2"></i></button>                                      &nbsp;&nbsp;&nbsp;              
+                          <button class="rep icon-play2" ng-click="play($event,tema.src)"></button>                                      &nbsp;&nbsp;&nbsp;              
                           <button  ng-click="share(tema.nombre, tema.artista, tema.img)" style="font-size:29px" ><i class="icon-share"></i></button>                                                    
                           </td>
                        </table>
@@ -134,7 +133,7 @@
                    <tr>
                        <td class="msg-wrap" ng-controller="twitter">
                            <div class="tuit ">
-               <textarea placeholder="Dile algo al locutor." ng-model="tuit" id="tuit" onkeyup="autoGrow(this)"></textarea> 
+               <textarea placeholder="Dile algo al locutor." ng-model="tuit" id="tuit" onkeyup="autoGrow(this)" required></textarea> 
                <a href="" class="btn-send" ng-click="doTuit()"><i class="icon-arrow-right3"></i></a>
                </div>
                        </td>
