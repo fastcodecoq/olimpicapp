@@ -44,11 +44,14 @@
 
 <gap:plugin name="org.li8.inappbrowser" version="0.1" />
 <gap:plugin name="com.badrit.backgroundjs" version="0.1.0" />
+<gap:plugin name="nl.x-services.plugins.socialsharing" />
 
 <feature name="http://api.phonegap.com/1.0/network"/>
 <feature name="http://api.phonegap.com/1.0/notification"/>
 <feature name="http://api.phonegap.com/1.0/media"/>
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
-
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+</feature>
 
 </widget>
