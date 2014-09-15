@@ -35,13 +35,13 @@
     <preference name="DisallowOverscroll" value="true"/>
 
 
-    <platform name="android">              
-              <icon src="icon_96.png" width="96" height="96" />
-              <icon src="icon_72.png" width="72" height="72" />
-              <icon src="icon_48.png" width="48" height="48" />
-              <icon src="icon_36.png" width="36" height="36" />
+   <platform name="android">
+              <icon src="res/android/ldpi.png" density="ldpi" />
+              <icon src="res/android/mdpi.png" density="mdpi" />
+              <icon src="res/android/hdpi.png" density="hdpi" />
+              <icon src="res/android/xhdpi.png" density="xhdpi" />
      </platform>
-
+     
 <gap:plugin name="org.li8.inappbrowser" version="0.1" />
 <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.5.0" />
 <gap:plugin name="nl.x-services.plugins.socialsharing" />
@@ -50,6 +50,7 @@
 <feature name="http://api.phonegap.com/1.0/notification"/>
 <feature name="http://api.phonegap.com/1.0/media"/>
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
+
 <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 </feature>

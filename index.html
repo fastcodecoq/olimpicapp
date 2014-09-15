@@ -61,6 +61,7 @@
                 <button ng-click="play($event,'emi')" class="rep emis icon-play2" style="font-size:25px"></button>
                 </td>
                 <td style="center" ng-controller="emisoras">  
+                &nbsp;&nbsp;
                    <span ng-model="frec" style="float: left;margin-top: 5px;">{{frec}} <img src="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/sound_colorWhite.png" alt="" ></span>                             
                     <select class="center" ng-change="play()"  ng-model="emisoraSel" 
                     ng-options="emisora as emisora.ciudad for emisora in emisoras" >
