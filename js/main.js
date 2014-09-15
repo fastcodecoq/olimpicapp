@@ -169,15 +169,12 @@ $scope.play = function(){
         if ($("#tuit").val().trim()==""){
           alert("El mensaje no puede estar vacio");
         }else{
-         window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl, function(err){
-          
-          if(error) return;
+         window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl); 
 
           $("#tuit")
           .css(height,window.initialHeight+"px")
           .val('');
-
-         }); 
+          
          }
       }
 
