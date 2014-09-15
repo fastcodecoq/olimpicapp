@@ -195,10 +195,9 @@ $scope.play = function(){
   
   document.addEventListener("deviceready", function(){
 
-      alert('phonegap')
-    
+      app.run();
     window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
-    app.run();
+  
   
   });
 
