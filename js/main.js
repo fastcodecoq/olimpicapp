@@ -123,7 +123,7 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "closebuttoncaption=Cerrar");          
+         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "location=yes,closebuttoncaption=Cerrar");          
          $scope.tuit = "";
          $("#tuit").css(height,window.initialHeight+"px");
       }

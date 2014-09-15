@@ -5,6 +5,21 @@
 @gris : #BDC3C7;
 @fontt :  #383838;
 
+
+@-webkit-keyframes pop-in {    
+	0% { opacity: 0; -webkit-transform: scale3d(0.5,0.5,0); }
+	100% { opacity: 1; -webkit-transform: scale(1,1,0); }
+}
+
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+  to {
+    opacity: 1;
+  }
+}
+
 .btn-send{
 	margin-left: 5px;
 font-size: 21px;
@@ -142,6 +157,7 @@ box-shadow: none !important;
 
    li{
     padding:8px 0;
+    -webkit-animation: pop-in 0.35s;
    }
 	  table td{
 	   padding:7px;
