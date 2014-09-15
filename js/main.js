@@ -71,6 +71,16 @@ $scope.play = function(){
                 });
 
 
+                $scope.share = function(nombre, artista, src){
+                   console.log(nombre,artista,src);
+
+                   var msg = 'Estoy escuchando '+nombre+' de '+artista+', en la aplicación móvil de Olimpica Stereo.';
+                   var  link = 'http://olimpicastereo.com.co/20-latinas';
+                   window.plugins.socialsharing.share(msg,null,src, link);
+
+                }
+
+
                 $scope.play = function(src){   
 
                     console.log(src); 
@@ -196,11 +206,7 @@ $scope.play = function(){
   document.addEventListener("deviceready", function(){
 
       app.run();
-    window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
-    var count=0;
-  setInterval(function() {
-console.log(count++);
-},1000);
+    window.plugin.backgroundMode.enable();
   
   });
 

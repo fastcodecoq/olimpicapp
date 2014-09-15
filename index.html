@@ -108,7 +108,7 @@
                           {{tema.nombre}} <br> <b>{{tema.artista}}</b>
                           </div>
                           <button ng-click="play(tema.src)" ><i class="icon-play2"></i></button>                                      &nbsp;&nbsp;&nbsp;              
-                          <button onclick="window.plugins.socialsharing.share('Escucha {{tema.nombre}} - <b>{{tema.artista}}</b> en Olimpica stereo y las 20 latinas.', null, null, 'http://www.olimpicastereo.com.co/20latinas')" style="font-size:29px" ><i class="icon-share"></i></button>                                                    
+                          <button  ng-click="share(tema.nombre, tema.artista, tema.img)" style="font-size:29px" ><i class="icon-share"></i></button>                                                    
                           </td>
                        </table>
                     </li>
