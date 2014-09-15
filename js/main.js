@@ -81,7 +81,7 @@ $scope.play = function(){
 
                    var msg = 'Estoy escuchando '+nombre+' de '+artista+', en la aplicación móvil de Olimpica Stereo.';
                    var  link = 'http://olimpicastereo.com.co/20-latinas';
-                   window.plugins.socialsharing.share(msg, 'escuchando '+nombre+' de '+artista+, src, link);
+                   window.plugins.socialsharing.share(msg, 'escuchando '+nombre+' de '+artista, src, link);
 
                 }
 
