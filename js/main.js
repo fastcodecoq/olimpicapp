@@ -137,9 +137,10 @@ $scope.play = function(){
       $scope.tuit = "";
 
       $scope.doTuit = function(){
-         window.open("https://twitter.com/intent/tweet?text=" + $scope.tuit + "&hashtags=NuevaApp&via=" + window.twitter + "&url=" + window.appurl, "_blank", "location=yes");          
-         $scope.tuit = "";
+
+         window.plugins.socialsharing.shareViaTwitter($scope.tuit + ' via @' + window.twitter + ' ' + window.appurl); 
          $("#tuit").css(height,window.initialHeight+"px");
+
       }
 
   });
