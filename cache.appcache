@@ -1,0 +1,32 @@
+CACHE MANIFEST
+ 
+# Offline cache v1
+
+ 
+CACHE:
+
+# css files
+less/main.less
+
+# html files
+index.html
+ 
+# js files
+js/angular.min.js
+js/main.js
+js/fastclick.js
+js/vendor/jquery-2.1.0.min.js
+ 
+# images
+img/loading.gif
+img/logo.png
+
+#icons
+icons/style.css
+
+
+#fonts
+icons/fonts/icomoon.eot
+icons/fonts/icomoon.svg
+icons/fonts/icomoon.ttf
+icons/fonts/icomoon.woff
