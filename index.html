@@ -54,13 +54,13 @@
             </div>
             </div>
 
-            <div class="secondary-top-bar">
+            <div class="secondary-top-bar" ng-controller="emisoras">
             <table class="wraper">
                <tr>
-               <td ng-controller="20Latinas" style="text-align:center">
-                <button ng-click="play($event,'emi')" class="rep emis icon-play2" style="font-size:25px"></button>
+               <td  style="text-align:center" id="repro-emi">
+                <button ng-click="play()" class="rep emis icon-play2" style="font-size:25px"></button>
                 </td>
-                <td style="center" ng-controller="emisoras">                  
+                <td style="center" >                  
                    <span ng-model="frec" style="float: left;margin-top: 5px;">{{frec}} <img src="http://olimpicastereo.com.co/wp-pics/themes/olimpica/img/icn/sound_colorWhite.png" alt="" ></span>                             
                     <select class="center" ng-change="play()"  ng-model="emisoraSel" 
                     ng-options="emisora as emisora.ciudad for emisora in emisoras" >
@@ -85,10 +85,18 @@
 <br>
 
          <section class="app-content " >
+           
+            <div class="loader-wrap">
+             <span  class="loader">
+             <br>
+             <br>
+             <img src="img/loading.gif" alt=""><br></span>
+             </div>
 
-
-         <div ng-controller="20Latinas" class="wraper">
+         <div ng-controller="20Latinas" class="wraper" ng-show="cargado">
+         
          <h2 style="text-align: center;">Las 20 Latinas</h2>
+     
 
                <ol class="lats20" >
                    
@@ -111,9 +119,7 @@
                </ol>
          </div>
          <br>
-<br>
-<br>
-<span class="wraper " style="text-align:center">Gomosöft</span>
+
 <br>
 <br>
 <br>
@@ -140,6 +146,7 @@
          </footer>    
        </div>
 <video id="player" src="" style="display:none" ></video>
+<video id="emisora" src="" style="display:none" ></video>
 
         <script src="js/angular.min.js"></script>
         <script src="js/fastclick.js"></script>

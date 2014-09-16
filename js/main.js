@@ -6,18 +6,80 @@
 
 
          window.player = document.getElementById('player');
+         window.emi = document.getElementById('emisora');
          window.emisra = "";
          window.twitter = "OlimpicaStereo";
+         window.playing = "";
+         window.playingEmi = "";
+
+
+          window.player.addEventListener('playing', function(){
+        
+loader.hide();
+          
+         });
+
+
+        window.player.addEventListener('waiting', function(){
+        
+loader.show();
+     
+         });
+
+
+        window.player.addEventListener('pause', function(){
+        
+        
+        loader.hide();
+
+         });
+
+
+
+         window.emi.addEventListener('playing', function(){
+ 
+loader.hide();
+       $('.emis').addClass('icon-pause').
+       addClass('playing');
+
+        
+         });
+
+
+        window.emi.addEventListener('waiting', function(){
+   
+loader.show();
+       $('.emis').addClass('icon-pause');
+           
+         });
+
+
+        window.emi.addEventListener('pause', function(){
+        
+     
+        loader.hide();
+       $('.emis')
+       .removeClass('icon-pause')
+       .removeClass('playing');
+
+
+            
+         });
+
 
         var app = angular.module('olimpicapp',[]);
 
         // controller emisoras
 
-            app.controller('emisoras', function($scope, $http){
+      app.controller('emisoras', function($scope, $http){
 
               // pasaremos esto a un catalogo
 
-              $scope.frec = "0.00";
+              $scope.frec = "000.0";
+
+
+       
+      
        
 
        $http
@@ -29,6 +91,7 @@
        })
 
 
+
 $scope.play = function(){    
 
         if(!$scope.emisoraSel)
@@ -37,22 +100,40 @@ $scope.play = function(){
             return;
         }
 
-       player.src = $scope.emisoraSel.src;
-       window.playing = $scope.emisoraSel.src;
 
-       if($scope.emisoraSel.tel)
+            
+
+
+       if(window.playingEmi === $scope.emisoraSel.src)
+         {
+            emi.play();
+            return;
+         }
+
+       emi.src = $scope.emisoraSel.src;       
+       emi.load();       
+       emi.play();
+      
+       $scope.frec = $scope.emisoraSel.frec || "000.0";
+       $('button.rep').removeClass('icon-pause').addClass('icon-play2');
+
+    
+       window.playingEmi = $scope.emisoraSel.src;                          
+       $scope.reproduciendo = true;
+       player.pause();
+       window.twitter = $scope.emisoraSel.twitter || "OlimpicaStereo";
+
+        if($scope.emisoraSel.tel)
          document.getElementById("tel").href = "tel:" + $scope.emisoraSel.tel;
        else
         document.getElementById("tel").href = "tel:0315554433";
 
-       $scope.frec = $scope.emisoraSel.frec || "0.00";
-       $('button.rep').removeClass('icon-pause').addClass('icon-play2');
-                         $('.emis').addClass('icon-pause');
-       player.load();
-       player.play();
-      $scope.reproduciendo = true;
-       window.twitter = $scope.emisoraSel.twitter || "OlimpicaStereo";
+
 }
+
+
+                
+
 
            
 
@@ -64,14 +145,20 @@ $scope.play = function(){
 
             app.controller('20Latinas', function($scope, $http){
 
+               
                 $scope.Lats20 = {};
+                $scope.cargado = false;
 
+      
                 $http
                 .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')
                 // .get('servicios/20Latinas.php')
                 .success(function(rs){
 
                     $scope.Lats20 = rs.rs;
+                    $scope.cargado = true;                    
+                    loader.hide();
+
 
                 });
 
@@ -93,7 +180,10 @@ $scope.play = function(){
                       if(src === "emi")
                       {
 
-                       console.log(window.playing); 
+                         player.pause();
+                         emi.play();
+                         window.emisra = window.playing;
+                         console.log(window.playing); 
 
 
                         if(!window.playing && !src) return;
@@ -104,23 +194,16 @@ $scope.play = function(){
                             $('button.rep').removeClass('icon-pause').addClass('icon-play2');
                          $('.emis').addClass('icon-play2');
                             $scope.reproduciendo = false;
-                            player.pause();
+                            emi.pause();
                           }else{
                             $scope.reproduciendo = true;
                             $('button.rep').removeClass('icon-pause').addClass('icon-play2');
                             $('.emis').addClass('icon-pause');
-                            player.play();
+                            player.pause();
+                            emi.play();
                           }
                            return;
                          }
-
-                         player.src = window.playing;
-                         player.load();
-                         player.play();
-                         $scope.reproduciendo = true;
-                         $('button.rep').removeClass('icon-pause').addClass('icon-play2');
-                         $('.emis').addClass('icon-pause');
-                         window.emisra = window.playing;
 
                          return;
 
@@ -136,15 +219,18 @@ $scope.play = function(){
                           }else{
                             $('button.rep').removeClass('icon-pause').addClass('icon-play2');
                          $(event.target).addClass('icon-pause');
+                            emi.pause();
                             player.play();
                             $scope.reproduciendo=true;
                           }
                           return;
                         }
 
+                       emi.pause();
                        player.src = src;
                        player.load();
                        player.play();
+
                        $scope.reproduciendo = true;
                        $('button.rep').removeClass('icon-pause').addClass('icon-play2');
                          $(event.target).addClass('icon-pause');
@@ -153,7 +239,7 @@ $scope.play = function(){
                 }
 
 
-                $scope.pause = function(){ player.pause(); }
+                
 
             });
   
@@ -188,6 +274,8 @@ $scope.play = function(){
       run : function(){
 
 
+        
+      window.loader = $(".loader-wrap");
      
      var lastScrollTop = 0;
 
@@ -197,6 +285,13 @@ $scope.play = function(){
 
     
      });
+
+    $('#repro-emi').on('click', '.emis.playing' ,function(){
+
+                emi.pause();   
+                return;
+
+               });
 
 
     $(".app-content").scroll(function(){
