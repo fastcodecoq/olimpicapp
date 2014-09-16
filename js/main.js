@@ -299,9 +299,9 @@ $scope.play = function(){
      console.log(st,lastScrollTop);
    
       if (st > lastScrollTop){
-         $("footer:not('footer.noauto')").css("bottom", "-" + ( $("footer").height() + 15 ) + "px");
+         $("footer").css("bottom", "-" + ( $("footer").height() + 15 ) + "px");
         } else {
-         $("footer:not('footer.noauto')").css({transform : "translate3d(0,0" + $(window).scrollTop() + "px,0)", bottom:0});        
+         $("footer").css({transform : "translate3d(0,0" + $(window).scrollTop() + "px,0)", bottom:0});        
       }
 
    lastScrollTop = st;
