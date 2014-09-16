@@ -151,8 +151,7 @@ $scope.play = function(){
 
       
                 $http
-                .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')
-                // .get('servicios/20Latinas.php')
+                .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')                
                 .success(function(rs){
 
                     $scope.Lats20 = rs.rs;
