@@ -5,14 +5,14 @@
 
 
 
-         window.player = new Media();
+   
          window.emi = document.getElementById('emisora');
          window.emisra = "";
          window.twitter = "OlimpicaStereo";
          window.playing = "";
          window.playingEmi = "";
 
-
+/*
           window.player.addEventListener('playing', function(){
         
 loader.hide();
@@ -32,7 +32,7 @@ loader.show();
         
         loader.hide();
 
-         });
+         });  */
 
 
 
@@ -274,7 +274,7 @@ function playAudio(url, success, err) {
   
    if(window.reproduciendo)
     {
-       window.player.stop();
+        window.player.stop();
         window.player.release();
       }
 
@@ -286,6 +286,7 @@ function playAudio(url, success, err) {
             console.log("playAudio():Audio Error: "+err);
         }
     );
+
     
 }
 
@@ -351,26 +352,17 @@ function playAudio(url, success, err) {
 }
 
 
-  //miramos si corre con phonegap 
 
- if(!!window.cordova)
   
-   // device ready phonegap
-  
-  document.addEventListener("deviceready", function(){
+  $(document).on("deviceready", function(){
 
-      app.run();
+    app.run();
+ 
     window.plugin.backgroundMode.enable();
   
   });
 
-else
 
-  // Ready Jquery
-
-   $(app.run);
-
-    // esto hará que un textarea ajuste el alto al contenido 
 
 function autoGrow (oField) {
 
