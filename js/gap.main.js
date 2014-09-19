@@ -271,8 +271,12 @@ $scope.play = function(){
 //
 function playAudio(url, success, err) {
     // Play the audio file at url
-
-    player.stop();
+  
+   if(window.reproduciendo)
+    {
+       window.player.stop();
+        window.player.release();
+      }
 
     window.player = new Media(url,
         // success callback
