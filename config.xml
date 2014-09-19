@@ -34,7 +34,7 @@
     <preference name="DisallowOverscroll" value="true"/>
 
 
-           <icon src="ldpi.png" density="ldpi" />
+              <icon src="ldpi.png" density="ldpi" />
               <icon src="mdpi.png" density="mdpi" />
               <icon src="hdpi.png" density="hdpi" />
               <icon src="xhdpi.png" density="xhdpi" />
@@ -44,6 +44,7 @@
 <gap:plugin name="org.li8.inappbrowser" version="0.1" />
 <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.5.0" />
 <gap:plugin name="nl.x-services.plugins.socialsharing" />
+<gap:plugin name="org.apache.cordova.media" version="0.2.8" />
 
 <feature name="http://api.phonegap.com/1.0/network"/>
 <feature name="http://api.phonegap.com/1.0/notification"/>
