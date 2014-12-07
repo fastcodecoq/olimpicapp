@@ -6,7 +6,7 @@
 
 
          window.player = document.getElementById('player');
-         window.emi = document.getElementById('emisora');
+         window.emi = intel.xdk.audio;
          window.emisra = "";
          window.twitter = "OlimpicaStereo";
          window.playing = "";
@@ -109,6 +109,8 @@ $scope.play = function(){
             emi.play();
             return;
          }
+        
+       
 
        emi.src = $scope.emisoraSel.src;       
        emi.load();       
