@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "931c60c7-29b6-49b3-a1b6-229266503b61",
-      "lastModifiedDate": 1416459377706,
+      "lastModifiedDate": 1417995352371,
       "creationDate": 1416458943590
     },
     "sourceDirectory": "",
@@ -62,10 +62,35 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "olimpica",
-        "appID_": "not.yet.specified",
+        "appName_": "Olimpica St. ",
+        "appID_": "com.gomosoft.olimpicapp",
         "appAccess_": "*",
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "ldpi.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "mdpi.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "hdpi.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "xhdpi.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
         "splashes_": [],
         "iosProvs_": [],
         "addlPermissions_": "",
@@ -73,7 +98,9 @@
         "cordovaCLIVersion_": "3.5",
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
-        "crosswalkVersion_": "stable"
+        "crosswalkVersion_": "stable",
+        "appDescription_": "Olimpica Stereo tu emisora.",
+        "appAuthor_": "Gomosoft"
       },
       "Android-Crosswalk": {
         "platform_": "android",
@@ -85,10 +112,35 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "olimpica",
-        "appID_": "not.yet.specified",
+        "appName_": "Olimpica St. ",
+        "appID_": "com.gomosoft.olimpicapp",
         "appAccess_": "*",
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "ldpi.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "mdpi.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "hdpi.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "xhdpi.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
         "splashes_": [],
         "iosProvs_": [],
         "addlPermissions_": "",
@@ -96,7 +148,9 @@
         "cordovaCLIVersion_": "3.5",
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
-        "crosswalkVersion_": "stable"
+        "crosswalkVersion_": "stable",
+        "appDescription_": "Olimpica Stereo tu emisora de moda.",
+        "appAuthor_": "Gomosoft"
       },
       "iOS": {
         "platform_": "ios",

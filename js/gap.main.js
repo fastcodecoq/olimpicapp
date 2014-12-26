@@ -83,7 +83,7 @@ loader.show();
        
 
        $http
-       .get("http://gomosoft.com/olimpicapp/servicios/emisoras.json")
+       .get("http://gomosoft.com/services/servicios/emisoras.json")
        // .get("servicios/emisoras.json")
        .success(function(rs){
            $scope.emisoras = rs.data;
@@ -151,7 +151,7 @@ $scope.play = function(){
 
       
                 $http
-                .get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')                
+                .get('http://gomosoft.com/services/servicios/20Latinas.php')                
                 .success(function(rs){
 
                     $scope.Lats20 = rs.rs;
