@@ -83,8 +83,8 @@ app.controller('emisoras', function($scope, $http) {
 
 
 
-    $http.get("http://gomosoft.com/servicios/emisoras.json")
-    // .get("servicios/emisoras.json")
+    $http.get("http://gomosoft.com/olimpicapp/servicios/emisoras.json")
+    // .get("olimpicapp/servicios/emisoras.json")
     .success(function(rs) {
         $scope.emisoras = rs.data;
         window.appurl = rs.appurl;
@@ -146,7 +146,7 @@ app.controller('20Latinas', function($scope, $http) {
     $scope.cargado = false;
 
 
-    $http.get('http://gomosoft.com/servicios/20Latinas.php')
+    $http.get('http://gomosoft.com/olimpicapp/servicios/20Latinas.php')
         .success(function(rs) {
 
         $scope.Lats20 = rs.rs;
